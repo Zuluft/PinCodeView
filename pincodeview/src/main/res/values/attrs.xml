@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PinCodeView">
+        <attr name="keyboardMarginPercent" format="float" />
+        <attr name="bubblesMarginPercent" format="float" />
+        <attr name="keySizePercent" format="float" />
+        <attr name="bubbleSizePercent" format="float" />
+        <attr name="keyTextSize" format="dimension" />
+        <attr name="keyTextColor" format="color" />
+        <attr name="keyIdleStateBgColor" format="color" />
+        <attr name="keyPressedStateBgColor" format="color" />
+        <attr name="emptyBubbleStrokeWidth" format="dimension" />
+        <attr name="emptyBubbleColor" format="color" />
+        <attr name="filledBubbleColor" format="color" />
+        <attr name="pinCodeSize" format="integer" />
+        <attr name="keyPressAnimDuration" format="integer" />
+        <attr name="bubbleAnimDuration" format="integer" />
+    </declare-styleable>
+
+    <item name="defaultKeyboardMarginPercent" format="float" type="dimen">0.15</item>
+    <item name="defaultBubblesMarginPercent" format="float" type="dimen">0.25</item>
+    <item name="defaultKeySizePercent" format="float" type="dimen">0.2</item>
+    <item name="defaultBubbleSizePercent" format="float" type="dimen">0.05</item>
+    <dimen name="defaultKeyTextSize">25sp</dimen>
+    <dimen name="defaultEmptyBubbleStrokeWidth">5dp</dimen>
+    <color name="defaultKeyTextColor">#ffffff</color>
+    <color name="defaultKeyIdleStateBgColor">#80ffffff</color>
+    <color name="defaultKeyPressedStateBgColor">#60ffffff</color>
+    <color name="defaultEmptyBubbleColor">#80ffffff</color>
+    <color name="defaultFilledBubbleColor">#ffffff</color>
+    <integer name="defaultPinCodeSize">4</integer>
+    <integer name="defaultKeyPressAnimDuration">200</integer>
+    <integer name="defaultBubbleAnimDuration">200</integer>
+
+</resources>
