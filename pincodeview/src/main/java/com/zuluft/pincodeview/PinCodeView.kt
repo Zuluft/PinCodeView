@@ -17,6 +17,7 @@ import com.zuluft.pincodeview.valuesHolders.BubbleAnimatorValuesHolder
 import com.zuluft.pincodeview.valuesHolders.BubbleComponentValuesHolder
 import com.zuluft.pincodeview.valuesHolders.KeyPressAnimatorValuesHolder
 import com.zuluft.pincodeview.valuesHolders.NumberKeyComponentValuesHolder
+import java.util.function.Predicate
 
 private const val KEYS_PER_ROW_COUNT = 3
 
@@ -34,6 +35,8 @@ class PinCodeView :
     private val bubbleComponentValuesHolder: BubbleComponentValuesHolder
     private val keyPressAnimator: KeyPressAnimator
     private val bubbleAnimator: BubbleAnimator
+
+    private var onPinCodeEnterFinishedListener: ((String) -> Unit)? = null
 
     private val keyItemComponents = ArrayList<KeyItemComponent<CircularShape>>()
     private val bubbleItemComponents = ArrayList<BubbleComponent>()
@@ -78,6 +81,10 @@ class PinCodeView :
         )
     }
 
+    fun setOnPasscodeEnteredListener(predicate: (String) -> Unit) {
+        this.onPinCodeEnterFinishedListener = predicate
+    }
+
     private fun findKeyItemByCoordinates(x: Float, y: Float): KeyItemComponent<CircularShape>? {
         return keyItemComponents.findLast {
             it.getShape().contains(x, y)
@@ -92,6 +99,11 @@ class PinCodeView :
                 keyPressAnimator.animateKeyPress(it)
                 if (currentPin.length <= bubbleItemComponents.size) {
                     bubbleAnimator.animateBubble(bubbleItemComponents[currentPin.length - 1])
+                }
+                if (currentPin.length == pinCodeViewSettings.pinCodeSize &&
+                    onPinCodeEnterFinishedListener != null
+                ) {
+                    onPinCodeEnterFinishedListener!!.invoke(currentPin)
                 }
             }
         }

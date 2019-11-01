@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <com.zuluft.pincodeview.PinCodeView
+        android:id="@+id/pinView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:pinCodeSize="5" />
