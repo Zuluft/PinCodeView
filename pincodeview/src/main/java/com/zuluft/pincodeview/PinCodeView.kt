@@ -107,7 +107,7 @@ class PinCodeView :
                 }
             }
         }
-        return super.onTouchEvent(event)
+        return true
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
