@@ -14,16 +14,11 @@ class BubbleAnimator(
 ) {
 
     private val viewWeakRef: WeakReference<View> = WeakReference(view)
-    private var currentAnimator: ValueAnimator? = null
+
 
     fun animateBubble(bubbleComponent: BubbleComponent) {
-        if (currentAnimator != null && currentAnimator!!.isRunning) {
-            currentAnimator!!.pause()
-            currentAnimator!!.removeAllListeners()
-            currentAnimator!!.cancel()
-        }
         bubbleComponent.getPaint().style = Paint.Style.FILL_AND_STROKE
-        currentAnimator = ValueAnimator.ofArgb(
+        ValueAnimator.ofArgb(
             bubbleAnimatorValuesHolder.emptyBubbleColor,
             bubbleAnimatorValuesHolder.filledBubbleColor
         )

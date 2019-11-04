@@ -15,15 +15,9 @@ class KeyPressAnimator(
 
     private val viewWeakRef: WeakReference<View> = WeakReference(view)
 
-    private var currentAnimator: ValueAnimator? = null
 
     fun animateKeyPress(keyItemComponent: KeyItemComponent<CircularShape>) {
-        if (currentAnimator != null && currentAnimator!!.isRunning) {
-            currentAnimator!!.pause()
-            currentAnimator!!.removeAllListeners()
-            currentAnimator!!.cancel()
-        }
-        currentAnimator = ValueAnimator.ofArgb(
+        ValueAnimator.ofArgb(
             keyPressAnimatorValuesHolder.keyComponentIdleColor,
             keyPressAnimatorValuesHolder.keyComponentPressedColor
         )
